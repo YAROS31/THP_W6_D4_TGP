@@ -1,0 +1,6 @@
+<%if notice%>
+  <p class="alert alert-warning alert-dismissible fade show" role="alert" id="notice"><%= notice %></p>
+<%end%>
+
+<%= link_to 'Edit', edit_gossip_path(@gossip) %> |
+<%= link_to 'Back', gossips_path %>

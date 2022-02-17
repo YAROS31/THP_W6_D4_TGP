@@ -1,0 +1,39 @@
+<%= form_with(model: gossip, local: true, class: "col-3 m-3") do |form| %>
+  <% if gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gossip.errors.count, "error") %> prohibited this gossip from being saved:</h2>
+      <ul>
+      <% gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+  <br />
+  <div class="form-group">
+    <%= form.label :content, "Content" %>
+    <%= form.text_area :content, class: "form-control", size: "50x5" %>
+  </div>
+  <br />
+  <div class="form-group">
+    <label>Author</label>
+    <select name="gossip[user_id]" id="gossip_user_id">
+      <option value="">Please select</option>
+      <% User.all.each do |my_user| %>
+        <%if my_user.id == gossip.user_id%>
+          <option value="<%=my_user.id%>" selected><%=my_user.complete_name%></option>
+        <%elsif%>
+          <option value="<%=my_user.id%>"><%=my_user.complete_name%></option>
+        <%end%>
+      <%end%>
+    </select>
+  </div>
+  <br />
+  <div class="actions">
+    <%= form.submit "Proceed", class: "btn btn-primary"%>
+  </div>
+<% end %>

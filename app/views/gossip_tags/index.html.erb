@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gossip Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gossip_tags.each do |gossip_tag| %>
+      <tr>
+        <td><%= link_to 'Show', gossip_tag %></td>
+        <td><%= link_to 'Edit', edit_gossip_tag_path(gossip_tag) %></td>
+        <td><%= link_to 'Destroy', gossip_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gossip Tag', new_gossip_tag_path %>

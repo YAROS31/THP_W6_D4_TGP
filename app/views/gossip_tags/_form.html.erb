@@ -1,0 +1,17 @@
+<%= form_with(model: gossip_tag, local: true) do |form| %>
+  <% if gossip_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gossip_tag.errors.count, "error") %> prohibited this gossip_tag from being saved:</h2>
+
+      <ul>
+      <% gossip_tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
